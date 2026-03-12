@@ -1,0 +1,9 @@
+{
+  "dart.flutterSdkPath": "C:/flutter/flutter",
+  "dart.sdkPath": "C:/flutter/flutter/bin/cache/dart-sdk",
+  "dart.lineLength": 80,
+  "dart.analysisExcludedFolders": [
+    "build",
+    ".dart_tool"
+  ]
+}
