@@ -1,95 +1,68 @@
-# AnimatedSwitcher Widget Demo
+# Widget Presentation: AnimatedSwitcher
 
-**AnimatedSwitcher** smoothly transitions between two different widgets with customizable fade, slide, and scale animations—perfect for status updates in production apps like delivery tracking.
+`AnimatedSwitcher` is a Flutter widget that smoothly animates from one child widget to another when the child changes.
 
-## Quick Start
+## Assignment Context
 
-### Prerequisites
-- Flutter SDK installed ([get Flutter](https://flutter.dev/docs/get-started/install))
-- A device/emulator ready
+This project is my in-class widget presentation demo for Flutter.  
+Use case: a small order-tracking card that switches between compact and detailed views.
 
-### Run the App
+## Demo Summary (Real-World Scenario)
+
+The app simulates a delivery status UI:
+1. Compact card: shows order number and icon.
+2. Expanded card: shows status, ETA, and courier name.
+3. Button tap toggles the two states using `AnimatedSwitcher`.
+
+This matches a realistic production flow where users reveal more details without navigating away.
+
+## How To Run
+
 ```bash
 flutter pub get
 flutter run
 ```
 
-## How It Works
+## Relevant Code Location
 
-This demo showcases an **order tracking interface** that toggles between:
-- **Compact View**: Quick glimpse of order number and icon
-- **Expanded View**: Full tracking details (status, ETA, courier name)
+- `lib/screen/home.dart`: `AnimatedSwitcher` demo and toggle logic
+- `lib/main.dart`: app entry point
 
-Tap the **"Show Details"** button to trigger the AnimatedSwitcher transition.
+## Three AnimatedSwitcher Properties Demonstrated
 
----
+### 1. `duration`
+- In this project: `duration: const Duration(milliseconds: 200)`
+- Default: `const Duration(milliseconds: 300)`
+- What changes on screen: controls how quickly the new widget appears.
+- Why a developer adjusts it: to make transitions feel faster or calmer depending on UX goals.
 
-## Three Key Attributes
+### 2. `transitionBuilder`
+- In this project: custom builder combining `FadeTransition`, `SlideTransition`, and `ScaleTransition`
+- Default: a basic `FadeTransition`
+- What changes on screen: instead of only fading, the new card fades in, slides up, and scales from `0.85` to `1.0`.
+- Why a developer adjusts it: to create a branded, expressive motion style for state changes.
 
-### 1. **`duration`** (900 milliseconds)
-- **What it does**: Controls how long the incoming widget takes to animate in
-- **Default**: No default animation
-- **Visual effect**: Increasing it slows the transition; decreasing it speeds it up (try 300ms vs 2000ms)
-- **Why adjust it**: Match animation speed to app tone (fast = snappy, slow = elegant)
-- **In code**: `duration: const Duration(milliseconds: 900)`
+### 3. `switchInCurve`
+- In this project: `switchInCurve: Curves.easeOutCubic`
+- Default: `Curves.linear`
+- What changes on screen: motion starts quickly and settles smoothly at the end.
+- Why a developer adjusts it: curve choice changes how natural or snappy an animation feels.
 
-### 2. **`transitionBuilder`**
-- **What it does**: Customizes the animation effect—defines exactly how the widget enters
-- **Default**: Basic fade-only animation
-- **Visual effect**: This demo combines three effects:
-  - **Fade**: Opacity gradually increases (transparent → opaque)
-  - **Slide**: Widget moves upward from bottom (0.4 offset → 0)
-  - **Scale**: Widget grows from 85% to 100% size
-- **Why adjust it**: Create polished, branded transitions; e.g., flip, rotate, or bounce animations
-- **In code**: Returns a chain of `FadeTransition → SlideTransition → ScaleTransition`
+## Screenshots (Final UI)
 
-### 3. **`switchInCurve`** (easeOutCubic)
-- **What it does**: Sets the easing curve for the entrance animation
-- **Default**: Linear (constant speed)
-- **Visual effect**:
-  - `easeOutCubic` (used here): Quick start, then slows down (feels "snappy")
-  - Other options: `easeInCubic` (slow start, speeds up), `bounceOut` (bouncy), `linear` (uniform)
-- **Why adjust it**: Easing curves affect perceived smoothness and feel (professional vs playful)
-- **In code**: `switchInCurve: Curves.easeOutCubic`
-
----
-
-## Screenshots
-
-### Compact View (Initial State)
+### Compact View
 ![Compact View](screenshots/compact_view.png)
 
-### Expanded View (After Transition)
+### Expanded View
 ![Expanded View](screenshots/expanded_view.png)
 
----
+## In-Class Presentation Record
 
-## Code Structure
+- Presentation date: March 12, 2026
+- Presentation length target: 3 to 5 minutes
+- Submission type: public GitHub repository link submitted on Canvas before 5:00 PM on presentation day
 
-- **`lib/main.dart`**: App entry point
-- **`lib/screen/home.dart`**: Full AnimatedSwitcher implementation with detailed comments
-  - `_buildCompactCard()`: Minimal card (order # + icon)
-  - `_buildExpandedCard()`: Full details card (status, ETA, courier)
+## Notes
 
-## Key Takeaway
-
-**AnimatedSwitcher** is widely used in production apps for:
-- Order/delivery status transitions
-- Form validation feedback (error → success)
-- Navigation state changes
-- Filtering/sorting results updates
-
-It eliminates jarring UI switches and provides a polished, professional feel.
-
----
-
-## Resources
-
-- [AnimatedSwitcher Documentation](https://api.flutter.dev/flutter/widgets/AnimatedSwitcher-class.html)
-- [Curves Documentation](https://api.flutter.dev/flutter/animation/Curves-class.html)
-
----
-
-**Presented**: March 12, 2026  
-**Widget**: AnimatedSwitcher  
-**Use Case**: Order Tracking UI with Smooth Transitions
+- Code references are from Flutter documentation and class examples where applicable.
+- Commit history should include meaningful messages (not one single final commit).
