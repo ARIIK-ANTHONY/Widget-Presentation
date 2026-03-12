@@ -55,14 +55,3 @@ flutter run
 
 ### Expanded View
 ![Expanded View](screenshots/expanded_view.png)
-
-## In-Class Presentation Record
-
-- Presentation date: March 12, 2026
-- Presentation length target: 3 to 5 minutes
-- Submission type: public GitHub repository link submitted on Canvas before 5:00 PM on presentation day
-
-## Notes
-
-- Code references are from Flutter documentation and class examples where applicable.
-- Commit history should include meaningful messages (not one single final commit).
